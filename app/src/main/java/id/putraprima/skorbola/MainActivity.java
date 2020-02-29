@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(AWAYTEAM_KEY, away);
             intent.putExtra(IMAGEHOME_KEY, String.valueOf(imagehome));
             intent.putExtra(IMAGEAWAY_KEY, String.valueOf(imageaway));
+
+            startActivity(intent);
         }
     }
 
