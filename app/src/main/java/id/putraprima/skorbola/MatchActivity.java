@@ -55,9 +55,19 @@ public class MatchActivity extends AppCompatActivity {
        addscorehome(skorHome);
     }
 
+    public void handleScoreAway(View view) {
+        skorAway++;
+        addscoreaway(skorAway);
+    }
+
+    public void addscoreaway(int skorAway) {
+        TextView scoreView = findViewById(R.id.score_away);
+        scoreView.setText(String.valueOf(skorAway));
+    }
+
     private void addscorehome(int skorHome) {
         TextView scoreView = findViewById(R.id.score_home);
-        scoreView.setText(String.valueOf(scoreView));
+        scoreView.setText(String.valueOf(skorHome));
     }
 
     public void handleCek(View view) {
@@ -66,12 +76,13 @@ public class MatchActivity extends AppCompatActivity {
             hasil = "Draw";
         }else if (skorHome>skorAway) {
             hasil = homeText.getText().toString();
-        }else if (skorHome<skorAway) {
-            hasil = homeText.getText().toString();
+        }else if (skorAway>skorHome) {
+            hasil = awayText.getText().toString();
         }
 
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(HASIL_KEY, hasil);
         startActivity(intent);
     }
+
 }
